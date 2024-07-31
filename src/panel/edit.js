@@ -33,8 +33,8 @@ export default function Edit({ attributes, setAttributes }) {
 							allowedBlocks={ ['core/image', 'core/gallery', 'core/media-text', 'core/paragraph', 'core/button', 'core/buttons', 'core/code', 'core/list', 'core/embed' ]}
 							template={ BLOCKS_TEMPLATE }
 							//defaultBlock={ DEFAULT_BLOCK }
-    					//directInsert={ true } defaultBlock={ DEFAULT_BLOCK }
-    					//directInsert={ true } 		
+							//directInsert={ true } defaultBlock={ DEFAULT_BLOCK }
+							//directInsert={ true } 		
 							/> 
 				</div>         
 			</div>
