@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tempo/accordion-block",
+	"version": "1.1.1",
+	"title": "Accordion Block",
+	"category": "text",
+	"icon": "list-view",
+	"description": "Make spoiler for FAQ section.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	
+	"textdomain": "accordion-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

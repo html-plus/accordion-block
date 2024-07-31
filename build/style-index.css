@@ -1,0 +1,106 @@
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+:root {
+  --tempo-accordion-font-color: #222;
+  --tempo-accordion-title-color: inherit;
+  --tempo-accordion-font-size: 1rem;
+  --tempo-accordion-title-font-size: 1.1rem;
+  --tempo-accordion-panel-background-color: transparent;
+  --tempo-accordion-panel-border: 1px solid #e7e7e7;
+  --tempo-accordion-panel-border-radius: 0;
+  --tempo-accordion-panel-padding: 15px 15px 15px 15px;
+  --tempo-accordion-title-padding: 0 0 15px 0;
+  --tempo-accordion-content-padding: 15px 0 0 0;
+  --tempo-main-padding: 15px;
+  --tempo-accordion-panel-spacing: 15px;
+}
+
+.wp-block-tempo-accordion-block {
+  padding: 15px 0;
+  background-color: var(--tempo--accordion-panel-background-color);
+  border: var(--tempo--accordion-panel-border);
+  border-radius: var(--tempo--accordion-panel-border-radius);
+  margin: 0 !important;
+}
+.wp-block-tempo-accordion-block .accordion-item {
+  padding: var(--tempo-accordion-panel-padding);
+  border: var(--tempo-accordion-panel-border);
+  margin-bottom: var(--tempo-accordion-panel-spacing);
+}
+.wp-block-tempo-accordion-block .accordion-item.open .accordion-heading {
+  border-bottom: var(--tempo-accordion-panel-border);
+  padding-bottom: var(--tempo-main-padding);
+}
+.wp-block-tempo-accordion-block .accordion-item.open .accordion-heading .switcher-up-down .vertical {
+  transform: rotate(45deg);
+}
+.wp-block-tempo-accordion-block .accordion-item.open .accordion-heading .switcher-up-down .horizontal {
+  transform: rotate(-45deg);
+}
+.wp-block-tempo-accordion-block .accordion-item.open .accordion-content {
+  opacity: 1;
+  max-height: 100rem;
+  padding: var(--tempo-accordion-content-padding);
+}
+.wp-block-tempo-accordion-block .accordion-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.wp-block-tempo-accordion-block .accordion-heading .switcher-up-down {
+  display: inline-block;
+  height: 1.1rem;
+  margin-left: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.1rem;
+}
+.wp-block-tempo-accordion-block .accordion-heading .switcher-up-down .vertical, .wp-block-tempo-accordion-block .accordion-heading .switcher-up-down .horizontal {
+  background-color: var(--tempo-accordion-font-color);
+  bottom: 0;
+  display: inline-block;
+  position: absolute;
+  width: 0.66rem;
+  height: 0.1rem;
+  transition: all 0.2s ease;
+}
+.wp-block-tempo-accordion-block .accordion-heading .switcher-up-down .vertical {
+  right: 0;
+  transform: rotate(-45deg);
+}
+.wp-block-tempo-accordion-block .accordion-heading .switcher-up-down .horizontal {
+  left: 0;
+  transform: rotate(45deg);
+}
+.wp-block-tempo-accordion-block .accordion-title {
+  color: var(--tempo-accordion-title-color);
+  font-size: var(--tempo-accordion-title-font-size);
+  font-weight: bold;
+}
+.wp-block-tempo-accordion-block .accordion-content {
+  font-size: var(--tempo-accordion-font-size);
+  color: var(--tempo-accordion-font-color);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.2s linear, max-height 0.2s linear;
+  will-change: opacity, max-height;
+}
+
+.wp-block-image.alignleft {
+  float: left;
+  margin: 1.1rem;
+  margin-left: 0;
+  width: auto;
+}
+
+/*# sourceMappingURL=style-index.css.map*/
