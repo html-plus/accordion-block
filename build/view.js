@@ -25,7 +25,6 @@ var __webpack_exports__ = {};
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
-
 document.addEventListener("DOMContentLoaded", () => {
   let upDown = document.querySelectorAll('.wp-block-tempo-panel .accordion-heading');
   upDown.forEach(item => item.addEventListener('click', function () {

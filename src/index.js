@@ -23,14 +23,33 @@ import metadata from './block.json';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType( metadata.name, {
-	attributes: {
+registerBlockType(metadata.name, {
+  attributes: {
     heading: {
       type: 'string',
-			source: 'html',
+      source: 'html',
       selector: 'h2',
-    }
+    },
+    alignment: {
+      type: 'string',
+    },
+    titleTextColor: {
+      type: "string",
+      default: '#222222'
+    },
+    contentTextColor: {
+      type: "string",
+      default: '#222222'
+    },
+    titleBgColor: {
+      type: "string",
+      default: 'transparent'
+    },
+    contentBgColor: {
+      type: "string",
+      default: 'transparent'
+    },
   },
-	edit: Edit,
-	save,
-} );
+  edit: Edit,
+  save,
+});

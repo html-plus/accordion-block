@@ -9,28 +9,27 @@
  */
 :root {
   --tempo-accordion-font-color: #222;
-  --tempo-accordion-title-color: inherit;
+  --tempo-accordion-title-color: #222;
+  --tempo-accordion-title-bgcolor: transparent;
   --tempo-accordion-font-size: 1rem;
   --tempo-accordion-title-font-size: 1.1rem;
   --tempo-accordion-panel-background-color: transparent;
   --tempo-accordion-panel-border: 1px solid #e7e7e7;
   --tempo-accordion-panel-border-radius: 0;
   --tempo-accordion-panel-padding: 15px 15px 15px 15px;
-  --tempo-accordion-title-padding: 0 0 15px 0;
-  --tempo-accordion-content-padding: 15px 0 0 0;
+  --tempo-accordion-title-padding: 15px 15px 15px 15px;
+  --tempo-accordion-content-padding: 0 15px 0 15px;
   --tempo-main-padding: 15px;
   --tempo-accordion-panel-spacing: 15px;
 }
 
 .wp-block-tempo-accordion-block {
   padding: 15px 0;
-  background-color: var(--tempo--accordion-panel-background-color);
   border: var(--tempo--accordion-panel-border);
   border-radius: var(--tempo--accordion-panel-border-radius);
   margin: 0 !important;
 }
 .wp-block-tempo-accordion-block .accordion-item {
-  padding: var(--tempo-accordion-panel-padding);
   border: var(--tempo-accordion-panel-border);
   margin-bottom: var(--tempo-accordion-panel-spacing);
 }
@@ -47,12 +46,13 @@
 .wp-block-tempo-accordion-block .accordion-item.open .accordion-content {
   opacity: 1;
   max-height: 100rem;
-  padding: var(--tempo-accordion-content-padding);
 }
 .wp-block-tempo-accordion-block .accordion-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: var(--tempo-accordion-title-bgcolor);
+  padding: var(--tempo-accordion-title-padding);
   cursor: pointer;
 }
 .wp-block-tempo-accordion-block .accordion-heading .switcher-up-down {
@@ -64,8 +64,9 @@
   transform: translateY(-50%);
   width: 1.1rem;
 }
-.wp-block-tempo-accordion-block .accordion-heading .switcher-up-down .vertical, .wp-block-tempo-accordion-block .accordion-heading .switcher-up-down .horizontal {
-  background-color: var(--tempo-accordion-font-color);
+.wp-block-tempo-accordion-block .accordion-heading .switcher-up-down .vertical,
+.wp-block-tempo-accordion-block .accordion-heading .switcher-up-down .horizontal {
+  background-color: var(--tempo-accordion-title-color);
   bottom: 0;
   display: inline-block;
   position: absolute;
@@ -89,8 +90,10 @@
 .wp-block-tempo-accordion-block .accordion-content {
   font-size: var(--tempo-accordion-font-size);
   color: var(--tempo-accordion-font-color);
+  background-color: var(--tempo-accordion-panel-background-color);
   max-height: 0;
   overflow: hidden;
+  padding: var(--tempo-accordion-content-padding);
   opacity: 0;
   transition: opacity 0.2s linear, max-height 0.2s linear;
   will-change: opacity, max-height;

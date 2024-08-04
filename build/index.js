@@ -27,22 +27,84 @@ function Edit({
   attributes,
   setAttributes
 }) {
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
-  //const innerBlocksProps = useInnerBlocksProps( blockProps );
   const {
-    heading
+    heading,
+    alignment,
+    titleTextColor,
+    contentTextColor,
+    titleBgColor,
+    contentBgColor
   } = attributes;
+  const accordionStyleVars = {
+    "--tempo-accordion-title-bgcolor": titleBgColor,
+    "--tempo-accordion-title-color": titleTextColor,
+    "--tempo-accordion-font-color": contentTextColor,
+    "--tempo-accordion-panel-background-color": contentBgColor
+  };
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
+    style: accordionStyleVars
+  });
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.AlignmentToolbar, {
+    value: alignment,
+    onChange: newVal => setAttributes({
+      alignment: newVal
+    })
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     tagName: "h2",
-    allowedFormats: ['core/bold', 'core/italic'],
+    allowedFormats: ['core/bold', 'core/italic', 'core/text-color'],
     value: heading,
     onChange: newVal => setAttributes({
       heading: newVal
     }),
-    placeholder: "Title for Accordion Section"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
+    placeholder: "Title for Accordion Section",
+    style: {
+      textAlign: alignment
+    }
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Panel Title Color Settings', 'accordion-block'),
+    icon: "art",
+    initialOpen: false,
+    colorSettings: [{
+      value: titleTextColor,
+      onChange: hexColor => setAttributes({
+        titleTextColor: hexColor
+      }),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Title Font Color', 'accordion-block')
+    }, {
+      value: titleBgColor,
+      onChange: hexColor => setAttributes({
+        titleBgColor: hexColor
+      }),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Title Background Color', 'accordion-block')
+    }]
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.ContrastChecker, {
+    isLargeText: "false",
+    textColor: titleTextColor,
+    backgroundColor: titleBgColor
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Panel Content Color Settings', 'accordion-block'),
+    icon: "art",
+    initialOpen: false,
+    colorSettings: [{
+      value: contentTextColor,
+      onChange: hexColor => setAttributes({
+        contentTextColor: hexColor
+      }),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Content Font Color', 'accordion-block')
+    }, {
+      value: contentBgColor,
+      onChange: hexColor => setAttributes({
+        contentBgColor: hexColor
+      }),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Content Background Color', 'accordion-block')
+    }]
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.ContrastChecker, {
+    isLargeText: "false",
+    textColor: contentTextColor,
+    backgroundColor: contentBgColor
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
     allowedBlocks: ['tempo/panel'],
     template: [['tempo/panel', {
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Accordion Item Title 1", 'accordion-block')
@@ -99,6 +161,25 @@ __webpack_require__.r(__webpack_exports__);
       type: 'string',
       source: 'html',
       selector: 'h2'
+    },
+    alignment: {
+      type: 'string'
+    },
+    titleTextColor: {
+      type: "string",
+      default: '#222222'
+    },
+    contentTextColor: {
+      type: "string",
+      default: '#222222'
+    },
+    titleBgColor: {
+      type: "string",
+      default: 'transparent'
+    },
+    contentBgColor: {
+      type: "string",
+      default: 'transparent'
     }
   },
   edit: _edit__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -135,8 +216,6 @@ function Edit({
   }], ['core/paragraph', {
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Add accordion paragraph Content', 'accordion-block')
   }]];
-  //const DEFAULT_BLOCK = { name: 'core/paragraph', attributes: { content: 'Accordion Content...' } };
-
   const {
     title,
     isOpen
@@ -170,8 +249,6 @@ function Edit({
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
     allowedBlocks: ['core/image', 'core/gallery', 'core/media-text', 'core/paragraph', 'core/button', 'core/buttons', 'core/code', 'core/list', 'core/embed'],
     template: BLOCKS_TEMPLATE
-    //defaultBlock={ DEFAULT_BLOCK }
-    //directInsert={ true } 		
   }))));
 }
 
@@ -284,13 +361,31 @@ __webpack_require__.r(__webpack_exports__);
 function save({
   attributes
 }) {
-  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
-  // const innerBlocksProps = useInnerBlocksProps.save( blockProps );
+  const {
+    heading,
+    alignment,
+    titleTextColor,
+    contentTextColor,
+    titleBgColor,
+    contentBgColor
+  } = attributes;
+  const accordionStyleVars = {
+    "--tempo-accordion-title-bgcolor": titleBgColor,
+    "--tempo-accordion-title-color": titleTextColor,
+    "--tempo-accordion-font-color": contentTextColor,
+    "--tempo-accordion-panel-background-color": contentBgColor
+  };
+  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
+    style: accordionStyleVars
+  });
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
-  }, attributes.heading?.trim().length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+  }, heading?.trim().length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     tagName: "h2",
-    value: attributes.heading
+    value: heading,
+    style: {
+      textAlign: alignment
+    }
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null));
 }
 ;

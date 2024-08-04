@@ -6,56 +6,64 @@
  */
 :root {
 	--tempo-accordion-font-color: #222;
-	--tempo-accordion-title-color: inherit;
+	--tempo-accordion-title-color: #222;
+	--tempo-accordion-title-bgcolor: transparent;
 	--tempo-accordion-font-size: 1rem;
 	--tempo-accordion-title-font-size: 1.1rem;
 	--tempo-accordion-panel-background-color: transparent;
-  --tempo-accordion-panel-border: 1px solid #e7e7e7;
-  --tempo-accordion-panel-border-radius: 0;
+	--tempo-accordion-panel-border: 1px solid #e7e7e7;
+	--tempo-accordion-panel-border-radius: 0;
 	--tempo-accordion-panel-padding: 15px 15px 15px 15px;
-	--tempo-accordion-title-padding: 0 0 15px 0;
-	--tempo-accordion-content-padding: 15px 0 0 0;
+	--tempo-accordion-title-padding: 15px 15px 15px 15px;
+	--tempo-accordion-content-padding: 0 15px 0 15px;
 	--tempo-main-padding: 15px;
-  --tempo-accordion-panel-spacing: 15px;  
+	--tempo-accordion-panel-spacing: 15px;
 }
+
 .wp-block-tempo-accordion-block {
 	padding: 15px 0;
-	background-color: var(--tempo--accordion-panel-background-color);
 	border: var(--tempo--accordion-panel-border);
 	border-radius: var(--tempo--accordion-panel-border-radius);
 	margin: 0 !important;
+
 	.accordion {
 		&-item {
-			padding: var(--tempo-accordion-panel-padding);
 			border: var(--tempo-accordion-panel-border);
-			margin-bottom: var(--tempo-accordion-panel-spacing);	
+			margin-bottom: var(--tempo-accordion-panel-spacing);
+
 			&.open {
 				.accordion {
 					&-heading {
-						border-bottom: var(--tempo-accordion-panel-border);		
-					 	padding-bottom: var(--tempo-main-padding);
+						border-bottom: var(--tempo-accordion-panel-border);
+						padding-bottom: var(--tempo-main-padding);
+
 						.switcher-up-down {
 							.vertical {
 								transform: rotate(45deg);
 							}
+
 							.horizontal {
 								transform: rotate(-45deg);
 							}
-						}					
+						}
 					}
+
 					&-content {
 						opacity: 1;
 						max-height: 100rem;
-						padding: var(--tempo-accordion-content-padding);
 					}
 				}
-			}	
+			}
 		}
+
 		&-heading {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			background-color: var(--tempo-accordion-title-bgcolor);
+			padding: var(--tempo-accordion-title-padding);
 			cursor: pointer;
+
 			.switcher-up-down {
 				display: inline-block;
 				height: 1.1rem;
@@ -64,8 +72,10 @@
 				top: 50%;
 				transform: translateY(-50%);
 				width: 1.1rem;
-				.vertical, .horizontal {
-					background-color: var(--tempo-accordion-font-color);
+
+				.vertical,
+				.horizontal {
+					background-color: var(--tempo-accordion-title-color);
 					bottom: 0;
 					display: inline-block;
 					position: absolute;
@@ -73,37 +83,42 @@
 					height: .1rem;
 					transition: all .2s ease;
 				}
-				.vertical {			
+
+				.vertical {
 					right: 0;
 					transform: rotate(-45deg);
 				}
+
 				.horizontal {
 					left: 0;
-					transform: rotate(45deg);		
+					transform: rotate(45deg);
 				}
 			}
 		}
+
 		&-title {
 			color: var(--tempo-accordion-title-color);
 			font-size: var(--tempo-accordion-title-font-size);
 			font-weight: bold;
 		}
+
 		&-content {
 			font-size: var(--tempo-accordion-font-size);
-			color: var(--tempo-accordion-font-color); 
+			color: var(--tempo-accordion-font-color);
+			background-color: var(--tempo-accordion-panel-background-color);
 			max-height: 0;
 			overflow: hidden;
-		  // transition: max-height .2s ease-out;
+			padding: var(--tempo-accordion-content-padding);
 			opacity: 0;
 			transition: opacity .2s linear, max-height .2s linear;
-  		will-change: opacity, max-height;
+			will-change: opacity, max-height;
 		}
 	}
 }
 
 
 // Frome Theme
-.wp-block-image.alignleft  {
+.wp-block-image.alignleft {
 	float: left;
 	margin: 1.1rem;
 	margin-left: 0;

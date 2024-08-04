@@ -7,7 +7,7 @@ export default function Save({ attributes }) {
     const blockProps = useBlockProps.save({
         className: `accordion-item`
     });
-
+    
     return (
       <div {...blockProps}>
 		<div className="accordion-heading">
@@ -26,4 +26,3 @@ export default function Save({ attributes }) {
 	  </div>
     )
 };
-

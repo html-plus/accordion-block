@@ -7,7 +7,7 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-tempo-accordion-block {
-  border: 1px dotted #f00;
+  border: 1px dotted #ccc;
 }
 .wp-block-tempo-accordion-block .accordion-heading .rich-text {
   font-weight: bold;
