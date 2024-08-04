@@ -29,7 +29,24 @@ registerBlockType( metadata.name, {
       type: 'string',
 			source: 'html',
       selector: 'h2',
-    }
+    },
+    titleTextColor: {
+      type: "string",
+      default: '#222222' 
+    },
+    contentTextColor: {
+      type: "string",
+      default: '#222222' 
+    },
+    titleBgColor: {
+      type: "string",
+      default: 'transparent' 
+    },
+    contentBgColor: {
+      type: "string",
+      default: 'transparent' 
+    }, 
+
   },
 	edit: Edit,
 	save,

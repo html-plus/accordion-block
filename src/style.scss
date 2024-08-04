@@ -13,8 +13,8 @@
   --tempo-accordion-panel-border: 1px solid #e7e7e7;
   --tempo-accordion-panel-border-radius: 0;
 	--tempo-accordion-panel-padding: 15px 15px 15px 15px;
-	--tempo-accordion-title-padding: 0 0 15px 0;
-	--tempo-accordion-content-padding: 15px 0 0 0;
+	--tempo-accordion-title-padding: 15px 15px 15px 15px;
+	--tempo-accordion-content-padding: 0 15px 0 15px;
 	--tempo-main-padding: 15px;
   --tempo-accordion-panel-spacing: 15px;  
 }
@@ -26,7 +26,6 @@
 	margin: 0 !important;
 	.accordion {
 		&-item {
-			padding: var(--tempo-accordion-panel-padding);
 			border: var(--tempo-accordion-panel-border);
 			margin-bottom: var(--tempo-accordion-panel-spacing);	
 			&.open {
@@ -55,6 +54,7 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			padding: var(--tempo-accordion-title-padding);
 			cursor: pointer;
 			.switcher-up-down {
 				display: inline-block;

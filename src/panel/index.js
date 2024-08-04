@@ -21,8 +21,7 @@ registerBlockType( 'tempo/panel', {
     isOpen: {
       type: 'boolean',
       default: true
-    },
-   
+    }
   },
 	edit: Edit,
 	save: Save,
