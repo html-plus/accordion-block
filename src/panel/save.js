@@ -10,7 +10,7 @@ export default function Save({ attributes }) {
 
     return (
       <div {...blockProps}>
-		<div className="accordion-heading">
+	<div className="accordion-heading">
             <RichText.Content tagName="div" 
                  className="accordion-title" 
                  value={ title } />
@@ -23,7 +23,7 @@ export default function Save({ attributes }) {
         <div className='accordion-content'>
             <InnerBlocks.Content />           
         </div>
-	  </div>
+      </div>
     )
 };
 
