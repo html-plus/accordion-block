@@ -11,19 +11,19 @@ registerBlockType( 'tempo/panel', {
   icon: 'welcome-write-blog', 
   parent: ['tempo/accordion-block'],
   supports: {
-		html: true,
-    reusable: false
+	html: true,
+	reusable: false
 	},
-	attributes: {
+  attributes: {
     title: {
-      type: 'string',
+	type: 'string',
     },
     isOpen: {
-      type: 'boolean',
-      default: true
+	type: 'boolean',
+	default: true
     },
    
   },
-	edit: Edit,
-	save: Save,
+  edit: Edit,
+  save: Save,
 } );
